@@ -29,7 +29,7 @@ const LoginScreen = () => {
         const token = responseData.data.token;
        
         // for meantime it will expires after 20 seconds
-        const expirationTimestamp = Date.now() + 10000    //10 * 24 * 60 * 60 * 1000; // 10 days in milliseconds 
+        const expirationTimestamp = Date.now() + 10000   //10 * 24 * 60 * 60 * 1000; // 10 days in milliseconds 
     
       console.log(token);
         // Store token and expiration timestamp securely using react-native-keychain
@@ -69,7 +69,11 @@ const LoginScreen = () => {
         onChangeText={text => setPassword(text)}
         value={password}
       />
+      <View style={{gap:10}}>
       <Button title="Login" onPress={handleLogin} />
+      <Button title="ForgotPassword" onPress={()=>navigation.navigate('ForgotPage')} />
+      </View>
+      
     </View>
   );
 };
